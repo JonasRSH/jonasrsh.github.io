@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     chatContainer.style.display = 'none';
     var toggleButton = document.querySelector('.toggle-chat');
     toggleButton.innerHTML = '<img class="chatbotpng" src="chatbot.png" alt="Chatbot">';
+    toggleButton.addEventListener('click', toggleChat);
+    var messageInput = document.getElementById('messageinput');
+    messageInput.addEventListener('keypress', handleKeyPress);
 });
 
 function toggleChat() {

@@ -89,5 +89,30 @@
         <p>&copy; 2025 Jonas Huggler. This Website is made by myself with VisualStudioCode, GitHub and the help of GitHub Copilot</p>
     </footer>
     </section>
+
+    <div id="chatbot-bar" class="chatbot-bar">
+        <div class="chatbot-header">
+            <span>Chatbot</span>
+            <button id="close-chatbot" class="close-btn">&times;</button>
+        </div>
+        <div class="chatbot-content">
+            <p>Welcome! How can I assist you today?</p>
+            <!-- Chatbot content goes here -->
+        </div>
+    </div>
+    <button id="open-chatbot" class="open-btn">Chat</button>
+    
+    <script>
+        document.getElementById('open-chatbot').onclick = function() {
+            document.getElementById('chatbot-bar').style.display = 'block';
+            this.style.display = 'none';
+        };
+    
+        document.getElementById('close-chatbot').onclick = function() {
+            document.getElementById('chatbot-bar').style.display = 'none';
+            document.getElementById('open-chatbot').style.display = 'block';
+        };
+    </script>
+
 </body>
 </html>

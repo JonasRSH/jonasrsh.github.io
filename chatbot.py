@@ -8,6 +8,9 @@ app = Flask(__name__)
 # Load environment variables from .env file
 load_dotenv()
 
+api_key = os.getenv('API_KEY')
+database_url = os.getenv('DATABASE_URL')
+
 # Load the JSON data
 with open('cv_jonas.json') as json_file:
     cv_data = json.load(json_file)
@@ -32,7 +35,7 @@ def get_response_from_cv_data(user_message, cv_data):
 
     # Search for the question in the cv_data
     for entry in cv_data:
-        if entry['Qestion'].lower() == user_message:
+        if entry['Question'].lower() == user_message:
             return entry['Answer']
 
     # If no match is found, return a default response
