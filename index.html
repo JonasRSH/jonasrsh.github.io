@@ -54,15 +54,33 @@
                     in a circular formation known as the "roda". Capoeira is not only a physical practice but also a way of live.
                 </p>
             </li>
-            <li>Fitness Training</li>
-            <li>Music</li>
-            <li>Programming</li>
+            <li>Fitness Training
+                <p>I wake up at 5 o'clock two times a week to work on improving my fitness. This important for me to maintain my health and mobility."</p>
+            </li>
+            <li>Music
+                <p>When I find some time among all my other activities, I love to make some music. My repertoire of instruments includes the violin, acoustic guitar, cavaquinho and percussion for capoeira."</p>
+            </li>
+            <li>Programming
+                <p>Currently, programming is just a hobby for me, but I aspire to make it my profession. I am actively learning Python, HTML, CSS and JavaScript.</p>
+                </p>
+            </li>
         </ul>
         </section>
 
     <section id="contact">
         <h2>Contact</h2>
         <p>Get in touch with me through this section.</p>
+        <ul>
+            <li>Phone: <span class="contact-info">+41 79 123 45 67</span></li>
+            <li>Email: <span class="contact-info">jonas.huggler[at]example[dot]com</span></li>
+            <li>LinkedIn: <span class="contact-info">linkedin.com/in/jonashuggler</span></li>
+        </ul>
+
+        <script>
+            document.querySelectorAll('.contact-info').forEach(function(element) {
+                element.textContent = element.textContent.replace('[at]', '@').replace('[dot]', '.');
+            });
+        </script>
     </section>
 
     <footer id="footer">
