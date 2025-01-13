@@ -18,6 +18,7 @@
         </ul>
     </nav>
 
+
     <!-- Sections -->
     <section id="start">
         <h1>Welcome to My Page</h1>
@@ -26,21 +27,22 @@
         <ul class="social-links">
             <li>
                 <a href="https://www.linkedin.com/in/jonashuggler" target="_blank">
-                    <img src="images/linkedin.png" alt="LinkedIn">LinedIn
+                    <img src="images/linkedin.png" alt="LinkedIn" class="social-icon">LinkedIn
                 </a>
             </li>
             <li>
-                <a href="https://www.youtube.com/channel/yourchannel" target="_blank">
-                    <img src="images/youtube.png" alt="YouTube">YouTube
+                <a href="https://www.youtube.com/@jonashuggler" target="_blank">
+                    <img src="images/youtube.png" alt="YouTube" class="social-icon">YouTube
                 </a>
             </li>
             <li>
                 <a href="https://github.com/JonasRSH" target="_blank">
-                    <img src="images/github.png" alt="GitHub">GitHub
+                    <img src="images/github.png" alt="LinkedIn" class="social-icon">LinkedIn
                 </a>
             </li>
         </ul>
-        </section>
+        
+    </section>
 
     <section id="aboutme">
         <h2>About Me</h2>
@@ -85,7 +87,7 @@
                 </p>
             </li>
         </ul>
-        </section>
+    </section>
 
     <section id="contact">
         <h2>Contact</h2>
@@ -103,34 +105,27 @@
         </script>
     </section>
 
+
+     <!-- Footer -->
     <footer id="footer">
         <p>&copy; 2025 Jonas Huggler. This Website is made by myself with VisualStudioCode, GitHub and the help of GitHub Copilot</p>
     </footer>
-    </section>
 
+
+    <!-- Chatbot Container -->
     <div id="chatbot-bar" class="chatbot-bar">
         <div class="chatbot-header">
-            <span>Chatbot</span>
+            <span><img src="images/chatbot.png" alt="Chatbot" class="social-icon"></span>
             <button id="close-chatbot" class="close-btn">&times;</button>
         </div>
         <div class="chatbot-content">
             <p>Welcome! How can I assist you today?</p>
-            <!-- Chatbot content goes here -->
+            <div id="chatbox" class="chatbox"></div>
+            <input id="messageinput" type="text" placeholder="Type a message...">
         </div>
     </div>
     <button id="open-chatbot" class="open-btn">Chat</button>
-    
-    <script>
-        document.getElementById('open-chatbot').onclick = function() {
-            document.getElementById('chatbot-bar').style.display = 'block';
-            this.style.display = 'none';
-        };
-    
-        document.getElementById('close-chatbot').onclick = function() {
-            document.getElementById('chatbot-bar').style.display = 'none';
-            document.getElementById('open-chatbot').style.display = 'block';
-        };
-    </script>
 
+    <script src="chatbot_script.js"></script>
 </body>
 </html>

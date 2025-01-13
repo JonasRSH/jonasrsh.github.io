@@ -1,30 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var chatContainer = document.getElementById('chat-container');
-    chatContainer.style.display = 'none';
-    var toggleButton = document.querySelector('.toggle-chat');
-    toggleButton.innerHTML = '<img class="chatbotpng" src="chatbot.png" alt="Chatbot">';
-    toggleButton.addEventListener('click', toggleChat);
+    var chatbotBar = document.getElementById('chatbot-bar');
+    var openButton = document.getElementById('open-chatbot');
+    var closeButton = document.getElementById('close-chatbot');
     var messageInput = document.getElementById('messageinput');
-    messageInput.addEventListener('keypress', handleKeyPress);
+
+    openButton.addEventListener('click', function() {
+        chatbotBar.style.display = 'block';
+        openButton.style.display = 'none';
+    });
+
+    closeButton.addEventListener('click', function() {
+        chatbotBar.style.display = 'none';
+        openButton.style.display = 'block';
+    });
+
+    messageInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
+    });
 });
-
-function toggleChat() {
-    var chatContainer = document.getElementById('chat-container');
-    var toggleButton = document.querySelector('.toggle-chat');
-    if (chatContainer.style.display === 'none' || chatContainer.style.display === '') {
-        chatContainer.style.display = 'block';
-        toggleButton.innerHTML = '<img class="chatbotpng" src="chatbot.png" alt="Chatbot">';
-    } else {
-        chatContainer.style.display = 'none';
-        toggleButton.innerHTML = '<img class="chatbotpng" src="chatbot.png" alt="Chatbot">';
-    }
-}
-
-function handleKeyPress(event) {
-    if (event.key === 'Enter') {
-        sendMessage();
-    }
-}
 
 function sendMessage() {
     var messageInput = document.getElementById('messageinput');
