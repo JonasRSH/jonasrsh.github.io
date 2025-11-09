@@ -1,0 +1,40 @@
+1. Codespace anlegen
+
+- Im Repository auf GitHub grünen Button "Code" anwählen. 
+- Reiter "Codespace" auswählen
+- "Create Codespace on main" um neuen Codespace zu erstellen
+
+
+2. Virtuelle Umgebung erstellen
+
+- Aktuelle Version von Python prüfen. Dazu im Terminal eingeben: python3 --version
+- neue virtuelle Umbebung erstellen mit Terminal: python3 -m venv django-venv (wobei django-venv der Name des neuen venv = VirtalEnviroments ist)
+- Aktivierung des neuen venv via Terminal: source django-env/bin/activate
+  Sollte nun im Terminal sichtbar sein: z.B. (django-env) @JonasRSH ➜ /workspaces/jonasrsh.github.io (main) $ 
+
+
+3. Installation von Django
+
+- Django installieren via Terminal mit: pip install django
+- Installierte Pakete anzeigen: pip list
+- Requirements-Datei erstellen: pip freeze > requirements.txt
+
+
+4. Codespace-Konfiguration
+
+- Erstellen eines Containers: 
+  Im Root Ordner des Repositories: mkdir .devcontainer ("Versteckter Ordner" durch "." vor dem Name)
+- Im erstellten Ordner devcontainer.json erstellen mit folgender Grundstruktur:
+  {
+    "name": "Projektname"
+    "image": "mcr.microsoft.com/devcontainers/python:3.11",
+    "features": {}
+    "postCreateCommand": "",
+    "customizations":  {
+      "vscode": {
+        "extensions": [],
+        "settings": {}
+      }
+    },
+    "forwardPorts": [8000, 3000]
+  }
