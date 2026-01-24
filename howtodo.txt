@@ -38,3 +38,19 @@
     },
     "forwardPorts": [8000, 3000]
   }
+
+
+5. Django Projekt erstellen
+
+- Projekt = Die gesamte Webanwendung
+- App = Ein Teil des Projekts (z.B. Blog, Shop, etc.)
+
+- Virtuelle Umgebung aktivieren:  source django-env/bin/activate
+- prüfen ob Djnago korrekt installiert ist:   python3 -m django --version
+- Projekt erstellen:  python3 -m django startproject jonas_website . (Der Punkt am Ende erstellt das Projekt im aktuellen Ordner)
+- Testen und Testserver starten:  python3 manage.py runserver
+- Seite und funktion prüfen auf lokalem Webserver:   http://127.0.0.1:8000/
+
+
+6. Integration meiner ursprungichen HTML Website in Django Projekt
+
