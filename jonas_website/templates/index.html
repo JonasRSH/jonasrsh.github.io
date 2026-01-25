@@ -15,19 +15,64 @@
             <li><a href="#aboutme">About Me</a></li>
             <li><a href="#profession">Profession</a></li>
             <li><a href="#hobbies">Hobbies</a></li>
-            <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="#projects">Projects</a></li>
         </ul>
     </nav>
 
 
     <!-- Sections -->
     <section id="start">
-        <h1 style="font-size: 52px;">Jonas Huggler</h1>
+        <dev style="text-align: center;">
+            <h1 style="font-size: 52px;">Jonas Huggler</h1>
+            <p> Aspiring software developer with skills in Python, C, HTML, CSS</p>
+        </dev>
+
         <hr>
-        
-        <p>Thank you for visiting my personal website.</p>
-        <p>Learn more about me by exploring the menu sections above, or feel free to check out the links below.</p>
+        <h2>My current enrolled course</h2>
+        <div class="course-container">
+            <div class="course-video">
+                <a href="https://video.cs50.io/PmAI76OGE_E" target="_blank">
+                    <img src="{% static 'images/cs50-logo.png' %}" alt="CS50 Week 6" class="course-logo">
+                    <span class="play-button">▶</span>
+                </a>
+            </div>
+            <div class="course-text">
+                <p><a href="https://cs50.harvard.edu/x/" target="_blank" class="cs50-main-link">CS50: Introduction to Computer Science</a></p>
+                <p>  Harvard University's introduction to computer science and programming.</p>
+                <p>  Progress: Week 5 - Python of 10</p>
+            </div>
+        </div>
+        <hr>
+        <h2>Dive in and explore my website</h2>
+        <div class="large-tile-container">
+            <div class="large-tile tile-about">
+                <a href="#aboutme">
+                    <div class="large-tile-content">
+                        <h3>About Me</h3>
+                        <p>Discover my background and journey into programming</p>
+                    </div>
+                </a>
+            </div>
+            <div class="large-tile tile-projects">
+                <a href="#projects">
+                    <div class="large-tile-content">
+                        <h3>Projects</h3>
+                        <p>Explore my coding projects and achievements</p>
+                    </div>
+                </a>
+            </div>
+            <div class="large-tile tile-contact">
+                <a href="#contact">
+                    <div class="large-tile-content">
+                        <h3>Contact</h3>
+                        <p>Get in touch and connect with me</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <h2>Connect with me on my socials</h2>
         <ul class="social-links">
             <li>
                 <a href="https://www.linkedin.com/in/jonashuggler" target="_blank">
@@ -77,7 +122,10 @@
         <hr>
         <p>I am an expert in import and export, specializing in European logistics road transport, and customs, with over 20 years of experience.</p>
         <p>Recently, I decided to learn a new profession and pursue a career in computer science, with the goal of becoming a programmer.</p>
-        <p>I am currently learning Python, HTML, CSS, Django and the basics how the internet and http protocol works. Additionally, I have a strong interest in artificial intelligence, cybersecurity, and ethical hacking. I am excited to expand my knowledge in these areas and I am currently looking for a job in this field as a career changer and exploring the possibility of pursuing any professional certificate or obtaining a Bachelor's degree in Computer Science.</p>
+        <p>I am currently learning C, Python, HTML, CSS, Django and the basics how the internet and http protocol works. Additionally, I have 
+           a strong interest in artificial intelligence, cybersecurity, and ethical hacking. I am excited to expand my knowledge in these 
+           areas and I am currently looking for a job in this field as a career changer and exploring the possibility of pursuing any 
+           professional certificate or obtaining a Bachelor's degree in Computer Science.</p>
     </section>
 
     <section id="hobbies">
@@ -99,28 +147,35 @@
                 <p>When I find some time among all my other activities, I love to make some music. My repertoire of instruments includes the violin, acoustic guitar, cavaquinho and percussion for capoeira.</p>
             </li>
             <li><strong>Programming</strong>
-                <p>Currently, programming is just a hobby for me, but I aspire to make it my profession. I am actively learning Python, HTML, CSS and JavaScript.</p>
+                <p>Currently, programming is just a hobby for me, but I aspire to make it my profession. I am actively learning Python, C, HTML, CSS and JavaScript.</p>
                 </p>
             </li>
         </ul>
     </section>
 
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <hr>
-        <p>Here, I will links my projects soon.</p>
-    </section>
-
-
     <section id="contact">
         <h2>Contact</h2>
         <hr>
-        <p>Get in touch with me.</p>
+        <h3>Get in touch</h3>
+        <p>Wether you have a question, a project idea, or just want to say hello - feel free to reach out to me.</p>
         <ul>
             <li>Email: <span class="contact-info">jonas.huggler[at]me[dot]com</span></li>
             <li>LinkedIn: <span class="contact-info">linkedin.com/in/jonashuggler</span></li>
         </ul>
+        <hr>
+        <h3>Write to me directly through the email form</h3>
+    
+        {% if messages %}
+            {% for message in messages %}
+                <div class="success-message">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    
+        <form method="post" class="contact-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
 
     
 
@@ -131,10 +186,24 @@
         </script>
     </section>
 
+    <section id="projects">
+        <h2>Projects</h2>
+        <hr>
+        <p>This section will showcase my projects shortly.</p>
+        <hr>
+        <h3>Plans and goals</h3>
+        <p>I am Working towards becoming a professional programmer. I am currently completing CS50: Introduction to Computer Science
+           and plan to expand my sklills next in JavaSkript, SQL, TypeScript and Shell Programming.</p>
+
+        <p>I will share reusable Django modules that can be customized to fit your needs and design.</p>
+
+        <p>Further I plan to make small applications for digitalization and automation of workflows for different tasks - think of it as 
+           tools to create, experiment and make things happpen.</p>
+    </section>
 
      <!-- Footer -->
     <footer id="footer">
-        <p>&copy; 2025 Jonas Huggler</p>
+        <p>&copy; 2026 Jonas Huggler | latest update: 24. Januar 2026</p>
     </footer>
 
 
