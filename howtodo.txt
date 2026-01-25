@@ -54,3 +54,6 @@
 
 6. Integration meiner ursprungichen HTML Website in Django Projekt
 
+- Die Website bleibt in deisem Fall separat erhalten. Die Projekte, bzw. Webapps werden separat in die Website verlinkt
+- Zuerst erstelle ich ein Template, damit die Apps optisch gleich angepasst sind wie meine Website
+

@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
     <title>Jonas Huggler's Webspace</title>
 </head>
 <body>
@@ -30,17 +31,17 @@
         <ul class="social-links">
             <li>
                 <a href="https://www.linkedin.com/in/jonashuggler" target="_blank">
-                    <img src="images/linkedin.png" alt="LinkedIn" class="social-icon">LinkedIn
+                    <img src="{% static 'images/linkedin.png' %}" alt="LinkedIn" class="social-icon">LinkedIn
                 </a>
             </li>
             <li>
                 <a href="https://www.youtube.com/@jonashuggler" target="_blank">
-                    <img src="images/youtube.png" alt="YouTube" class="social-icon">YouTube
+                    <img src="{% static 'images/youtube.png' %}" alt="YouTube" class="social-icon">YouTube
                 </a>
             </li>
             <li>
                 <a href="https://github.com/JonasRSH" target="_blank">
-                    <img src="images/github.png" alt="GitHub" class="social-icon">GitHub
+                    <img src="{% static 'images/github.png' %}" alt="GitHub" class="social-icon">GitHub
                 </a>
             </li>
         </ul>
@@ -51,7 +52,7 @@
         <h2>About Me</h2>
         <hr>
         <div style="display: flex; align-items: center;">
-            <img src="images/Jonas.jpg" alt="Photo of Jonas" style="width: 300px; height: auto; margin-right: 20px; margin-top: 10px;">
+            <img src="{% static 'images/Jonas.jpg' %}" alt="Photo of Jonas" style="width: 300px; height: auto; margin-right: 20px; margin-top: 10px;">
             <div>
                 <p>My name is Jonas Huggler. I am born in Germany, Trier and I live currently in Switzerland, Bern.</p>
                 
@@ -133,7 +134,7 @@
 
      <!-- Footer -->
     <footer id="footer">
-        <p>&copy; 2025 Jonas Huggler. This Website is made by myself with VisualStudioCode, GitHub and the help of GitHub Copilot</p>
+        <p>&copy; 2025 Jonas Huggler</p>
     </footer>
 
 
