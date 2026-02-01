@@ -2,15 +2,21 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import ContactForm
 from django.conf import settings
-from .models import ContactMessage
+from .models import ContactMessage, Certificate
 from django.core.mail import send_mail
 from decouple import config
 
+
+
 def index(request):
-    return render(request, 'index.html')
+    certificates = Certificate.objects.all()
+    return render(request, 'index.html', {'certificates': certificates})
+
 
 
 def contact(request):
+    certificates = Certificate.objects.all()  # Zertifikate für Anzeige laden
+    
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -45,4 +51,10 @@ def contact(request):
     else:
         form = ContactForm()
     
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'index.html', {'form': form, 'certificates': certificates})
+
+
+
+def index(request):
+    certificates = Certificate.objects.all()  # Alle Zertifikate holen
+    return render(request, 'index.html', {'certificates': certificates})

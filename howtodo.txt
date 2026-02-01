@@ -57,3 +57,7 @@
 - Die Website bleibt in deisem Fall separat erhalten. Die Projekte, bzw. Webapps werden separat in die Website verlinkt
 - Zuerst erstelle ich ein Template, damit die Apps optisch gleich angepasst sind wie meine Website
 
+
+7. Admin User erstellen
+
+- source venv/bin/activate && python3 manage.py createsuperuser

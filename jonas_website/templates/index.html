@@ -126,6 +126,41 @@
            a strong interest in artificial intelligence, cybersecurity, and ethical hacking. I am excited to expand my knowledge in these 
            areas and I am currently looking for a job in this field as a career changer and exploring the possibility of pursuing any 
            professional certificate or obtaining a Bachelor's degree in Computer Science.</p>
+
+           <hr>
+            <h3>My Certificates</h3>
+            {% if certificates %}
+            <div class="certificates-grid">
+                {% for certificate in certificates %}
+                <div class="certificate-item">
+                    <div class="certificate-image" onclick="openLightbox('{{ certificate.certificate_image.url }}', '{{ certificate.title|escapejs }}')">
+                        <img src="{{ certificate.certificate_image.url }}" alt="{{ certificate.title }}">
+                        <div class="image-overlay">
+                            <span>🔍 Vergrößern</span>
+                        </div>
+                    </div>
+                    <div class="certificate-info">
+                        <h4>{{ certificate.title }}</h4>
+                        <p class="organization">{{ certificate.organization }}</p>
+                        <p class="date">{{ certificate.date_obtained|date:"F Y" }}</p>
+                        {% if certificate.description %}
+                            <p class="description">{{ certificate.description }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <!-- Lightbox Modal -->
+            <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+                <span class="lightbox-close">&times;</span>
+                <img id="lightbox-img" src="" alt="">
+                <div id="lightbox-caption"></div>
+            </div>
+            
+            {% else %}
+                <p>No certificates uploaded yet.</p>
+            {% endif %}
     </section>
 
     <section id="hobbies">
@@ -185,6 +220,41 @@
             });
         </script>
     </section>
+
+    <script>
+    // Lightbox Funktionen
+    function openLightbox(imageSrc, imageTitle) {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        
+        lightbox.style.display = 'block';
+        lightboxImg.src = imageSrc;
+        lightboxImg.alt = imageTitle;
+        lightboxCaption.textContent = imageTitle;
+        
+        // Escape-Taste zum Schließen
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    }
+    
+    function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
+    }
+    
+    // Verhindere Schließen beim Klick auf das Bild
+    document.addEventListener('DOMContentLoaded', function() {
+        const lightboxImg = document.getElementById('lightbox-img');
+        if (lightboxImg) {
+            lightboxImg.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
+    });
+    </script>
 
     <section id="projects">
         <h2>Projects</h2>

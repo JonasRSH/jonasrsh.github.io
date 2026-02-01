@@ -4,6 +4,12 @@
 .env.local
 .env.production
 
+# Personal files - not for deployment
+howtodo.txt
+notes.txt
+*.local
+*.personal
+
 # Django
 __pycache__/
 *.py[cod]
