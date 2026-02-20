@@ -548,3 +548,48 @@ h1 ul li {
         font-size: 30px;
     }
 }
+
+
+.project-tile-content {
+    display: flex;
+    flex-direction: row;  /* Horizontal */
+    align-items: center;
+    padding: 15px;
+    gap: 15px;
+}
+
+.project-tile-content img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.project-text {
+    flex: 1;
+    text-align: left;
+}
+
+/* Spezifische Regeln für Projects-Sektion */
+#projects .large-tile {
+    height: auto;
+    min-height: 120px;
+}
+
+#projects .large-tile-container {
+    flex-direction: column;
+    gap: 5px;
+}
+
+.project-image {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+#projects .large-tile {
+    margin-bottom: 10px; /* Abstand zwischen den Boxen */
+    height: auto;        /* Flexible Höhe für Inhalt */
+}

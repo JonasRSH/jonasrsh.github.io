@@ -22,6 +22,7 @@
 
 
     <!-- Sections -->
+     <!-- START Section -->
     <section id="start">
         <dev style="text-align: center;">
             <h1 style="font-size: 52px;">Jonas Huggler</h1>
@@ -32,7 +33,7 @@
         <h2>My current enrolled course</h2>
         <div class="course-container">
             <div class="course-video">
-                <a href="https://video.cs50.io/PmAI76OGE_E" target="_blank">
+                <a href="https://cs50.harvard.edu/x/weeks/6/" target="_blank">
                     <img src="{% static 'images/cs50-logo.png' %}" alt="CS50 Week 6" class="course-logo">
                     <span class="play-button">▶</span>
                 </a>
@@ -40,7 +41,7 @@
             <div class="course-text">
                 <p><a href="https://cs50.harvard.edu/x/" target="_blank" class="cs50-main-link">CS50: Introduction to Computer Science</a></p>
                 <p>  Harvard University's introduction to computer science and programming.</p>
-                <p>  Progress: Week 5 - Python of 10</p>
+                <p>  Progress: Week 6 of 10 - Python</p>
             </div>
         </div>
         <hr>
@@ -93,6 +94,7 @@
             
     </section>
 
+    <!-- ABOUT ME Section -->
     <section id="aboutme">
         <h2>About Me</h2>
         <hr>
@@ -117,6 +119,7 @@
         </div>
     </section>
 
+    <!-- PROFESSION Section -->
     <section id="profession">
         <h2>Profession</h2>
         <hr>
@@ -163,6 +166,7 @@
             {% endif %}
     </section>
 
+    <!-- HOBBIES Section -->
     <section id="hobbies">
         <h2>Hobbies</h2>
         <hr>
@@ -188,6 +192,7 @@
         </ul>
     </section>
 
+    <!-- CONTACT Section -->
     <section id="contact">
         <h2>Contact</h2>
         <hr>
@@ -213,7 +218,6 @@
         </form>
 
     
-
         <script>
             document.querySelectorAll('.contact-info').forEach(function(element) {
                 element.textContent = element.textContent.replace('[at]', '@').replace('[dot]', '.');
@@ -222,7 +226,7 @@
     </section>
 
     <script>
-    // Lightbox Funktionen
+    // Lightbox functions
     function openLightbox(imageSrc, imageTitle) {
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
@@ -233,7 +237,7 @@
         lightboxImg.alt = imageTitle;
         lightboxCaption.textContent = imageTitle;
         
-        // Escape-Taste zum Schließen
+        // Escape-button to close
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeLightbox();
@@ -245,7 +249,7 @@
         document.getElementById('lightbox').style.display = 'none';
     }
     
-    // Verhindere Schließen beim Klick auf das Bild
+    // block closing by clicking at
     document.addEventListener('DOMContentLoaded', function() {
         const lightboxImg = document.getElementById('lightbox-img');
         if (lightboxImg) {
@@ -256,24 +260,52 @@
     });
     </script>
 
+    <!-- PROJECTS Section -->
     <section id="projects">
         <h2>Projects</h2>
         <hr>
-        <p>This section will showcase my projects shortly.</p>
-        <hr>
         <h3>Plans and goals</h3>
-        <p>I am Working towards becoming a professional programmer. I am currently completing CS50: Introduction to Computer Science
+        <p>I am Working towards becoming a professional programmer. I am currently completing "CS50: Introduction to Computer Science"
            and plan to expand my sklills next in JavaSkript, SQL, TypeScript and Shell Programming.</p>
 
         <p>I will share reusable Django modules that can be customized to fit your needs and design.</p>
 
+        <p>I also create websites upon request. You can explore the projects section for examples or just check out this website.</p>
+
         <p>Further I plan to make small applications for digitalization and automation of workflows for different tasks - think of it as 
            tools to create, experiment and make things happpen.</p>
+
+        <!-- Project Galery -->
+        <div class="large-tile-container">
+            <div class="large-tile tile-projects">
+                <a href="https://tatianakaufmann.art" target="_blank">
+                    <div class="project-tile-content">
+                        <img src="{% static 'images/tatiana-project.jpg' %}" alt="Project" class="project-image">
+                        <div class="project-text">
+                            <h2>Project: Tatiana's Website</h2>
+                            <h3>Website for a local artist</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="large-tile tile-projects">
+                <a href="#" target="_blank">
+                    <div class="project-tile-content">
+                        <img src="{% static 'images/warenausweis-project.jpg' %}" alt="Project Warenausweis" class="project-image">
+                        <div class="project-text">
+                            <h2>Project Warenausweis</h2>
+                            <h3>Automation Tool for the Customs Handling Process</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
     </section>
 
      <!-- Footer -->
     <footer id="footer">
-        <p>&copy; 2026 Jonas Huggler | latest update: 24. Januar 2026</p>
+        <p>&copy; 2026 Jonas Huggler | latest update: 20. Feb. 2026</p>
     </footer>
 
 
