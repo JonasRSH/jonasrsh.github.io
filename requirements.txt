@@ -3,3 +3,9 @@ python-decouple==3.8
 gunicorn==21.2.0
 pillow==10.3.0
 psycopg2-binary==2.9.9
+django-debug-toolbar==4.2.0    # Debugging in Development
+pytest-django==4.5.2           # Testing Framework
+black==23.9.1                  # Code Formatting
+flake8==6.1.0                  # Code Linting
+coverage==7.3.2                # Test Coverage
+dj-database-url==2.1.0         # Database URL Parsing
