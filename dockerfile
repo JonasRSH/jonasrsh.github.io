@@ -9,9 +9,11 @@ ENV PATH="/app/venv/bin:$PATH"
 
 WORKDIR /app
 
+
+COPY requirements.txt ./
 RUN python -m venv /app/venv
-COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+
 COPY . .
 
 FROM python:3.12-slim
@@ -28,6 +30,5 @@ COPY main/ ./main/
 COPY db.sqlite3 ./
 COPY --from=builder /app/venv /app/venv
 
-RUN mkdir -p
 
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "jonas_website.wsgi:application"]
