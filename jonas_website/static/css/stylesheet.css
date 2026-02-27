@@ -553,27 +553,32 @@ h1 ul li {
 .project-tile-content {
     display: flex;
     flex-direction: row;  /* Horizontal */
-    align-items: center;
-    padding: 15px;
-    gap: 15px;
+    align-items: center;    /* Vertikale Zentrierung */
+    padding: 0px 15px;      /* Weniger vertikaler Rand: 8px oben/unten, 15px links/rechts */
+    gap: 30px;             /* Mehr Abstand zwischen Bild und Text */
+    min-height: 120px;     /* Reduzierte Mindesthöhe */
 }
 
 .project-tile-content img {
-    width: 80px;
-    height: 60px;
+    width: 120px;          /* Vergrößert von 80px auf 120px */
+    height: 90px;          /* Vergrößert von 60px auf 90px */
     object-fit: cover;
     border-radius: 5px;
+    flex-shrink: 0;        /* Verhindert Schrumpfen des Bildes */
 }
 
 .project-text {
     flex: 1;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertikale Zentrierung des Textes */
 }
 
 /* Spezifische Regeln für Projects-Sektion */
 #projects .large-tile {
     height: auto;
-    min-height: 120px;
+    min-height: 120px;     /* Angepasst für kompaktere Darstellung */
 }
 
 #projects .large-tile-container {
@@ -582,14 +587,14 @@ h1 ul li {
 }
 
 .project-image {
-    width: 80px;
-    height: 60px;
+    width: 120px;          /* Vergrößert von 80px auf 120px */
+    height: 90px;          /* Vergrößert von 60px auf 90px */
     object-fit: cover;
     border-radius: 5px;
     flex-shrink: 0;
 }
 
 #projects .large-tile {
-    margin-bottom: 10px; /* Abstand zwischen den Boxen */
-    height: auto;        /* Flexible Höhe für Inhalt */
+    margin-bottom: 10px;   /* Abstand zwischen den Boxen */
+    height: auto;          /* Flexible Höhe für Inhalt */
 }

@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-fallback-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
 
-# ALLOWED_HOSTS für Produktion
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1').split(',')
+# ALLOWED_HOSTS für Entwicklung und Produktion
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '127.0.0.1:8000', 'localhost:8000', '*']
 
 
 # Application definition
