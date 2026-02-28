@@ -1,0 +1,14 @@
+# Development Requirements - Includes base + development tools
+-r requirements-base.txt
+
+# Development and Testing Tools
+django-debug-toolbar==4.2.0
+pytest-django==4.5.2
+black==23.9.1
+flake8==6.1.0
+coverage==7.3.2
+
+# Additional Development Tools
+django-extensions==3.2.3
+ipython==8.17.2
+factory-boy==3.3.0

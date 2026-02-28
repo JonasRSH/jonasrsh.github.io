@@ -1,5 +1,7 @@
 # Environment variables
 .env
+.env.*
+!.env.example
 *.env
 .env.local
 .env.production
@@ -9,8 +11,11 @@ howtodo.txt
 notes.txt
 *.local
 *.personal
+*.private
+TODO.md
+NOTES.md
 
-# Django
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
@@ -31,13 +36,71 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
-# Database
+# Django
 db.sqlite3
 db.sqlite3-journal
-
-# Static files
+*.log
+local_settings.py
 /static/
 /media/
+/staticfiles/
 
+# Virtual Environment
 venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Docker
+.dockerignore
+Dockerfile.*
+docker-compose.override.yml
+.docker/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+.temporary/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

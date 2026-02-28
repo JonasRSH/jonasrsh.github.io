@@ -1,7 +1,70 @@
-venv/
-*.pyc
+# Git
+.git
+.gitignore
+README.md
+REQUIREMENTS.md
+LICENSE
+
+# Environment files
+.env*
+!.env.example
+
+# Python cache
 __pycache__/
-.env
-howtodo.txt
+*.pyc
 *.pyo
 *.pyd
+.Python
+*.so
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Development tools
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+
+# Personal files
+howtodo.txt
+notes.txt
+*.local
+*.personal
+*.private
+TODO.md
+NOTES.md
+
+# Logs
+*.log
+logs/
+
+# Database (development)
+db.sqlite3
+db.sqlite3-journal
+
+# Static files (will be collected in container)
+/staticfiles/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Documentation
+docs/
+*.md
+!requirements*.txt

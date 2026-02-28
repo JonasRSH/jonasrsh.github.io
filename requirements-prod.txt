@@ -1,0 +1,6 @@
+# Production Requirements - Optimized for production deployment
+-r requirements-base.txt
+
+# Production-specific packages
+sentry-sdk[django]==1.38.0
+whitenoise==6.6.0
