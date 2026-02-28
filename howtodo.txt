@@ -1,3 +1,5 @@
+DJANGO SETUP
+
 1. Codespace anlegen
 
 - Im Repository auf GitHub grünen Button "Code" anwählen. 
@@ -61,3 +63,112 @@
 7. Admin User erstellen
 
 - source venv/bin/activate && python3 manage.py createsuperuser
+
+
+
+DOCKER SETUP
+
+## Bereitstellung einer Django-App im Internet auf einem Raspberry Pi
+
+### 1. **Vorbereitungen für die Internetverbindung**
+
+- **DynDNS oder eine statische IP-Adresse**: 
+  - Wenn dein Internetanbieter keine statische IP-Adresse bietet, kannst du einen DynDNS-Dienst nutzen, um eine Domain auf deine dynamische IP-zu verweisen.
+
+### 2. **Portweiterleitung konfigurieren**
+
+- **Router einrichten**: 
+  - Melde dich bei deinem Router an und konfiguriere die Portweiterleitung, um Anfragen an den externen Port (meistens 80 für HTTP und 443 für HTTPS) an die lokale IP-Adresse deines Raspberry Pi weiterzuleiten.
+
+### 3. **Sichere die Ports**
+
+- **Firewall einrichten**: 
+  - Stelle sicher, dass die Firewall deines Raspberry Pi nur benötigte Ports (z.B. 80 und 443) offen hat. Du kannst `ufw` verwenden:
+  
+  ```bash
+  sudo apt install ufw
+  sudo ufw allow 80
+  sudo ufw allow 443
+  sudo ufw enable
+  ```
+
+### 4. **Docker-Container starten**
+
+Starte deinen Docker-Container wie zuvor beschrieben:
+
+```bash
+docker run -d -p 8000:8000 --name my-django-container my-django-app:latest
+```
+
+Stelle sicher, dass du den Container so konfigurierst, dass er über den Port 80 angesprochen wird, falls du Nginx verwendest.
+
+### 5. **Nginx als Reverse Proxy**
+
+Um sicher und ordentlich im Internet zu arbeiten, richte **Nginx** als Reverse Proxy ein. Ich habe bereits erklärt, wie das geht. Hier sind die Schritte zur vollständigen Konfiguration:
+
+1. **Installiere Nginx**:
+   ```bash
+   sudo apt install nginx
+   ```
+
+2. **Konfiguriere Nginx**:
+   Ersetze `<your-raspberry-pi-ip>` in der Konfiguration durch die öffentliche IP oder den DynDNS-Namen.
+
+   ```nginx
+   server {
+       listen 80;
+       server_name <your-dyndns-name>;
+
+       location = /favicon.ico { access_log off; log_not_found off; }
+       location /static/ {
+           root /app;  # Pfad zur statischen Datei
+       }
+
+       location / {
+           proxy_pass http://localhost:8000;
+           proxy_set_header Host $host;
+           proxy_set_header X-Real-IP $remote_addr;
+           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+           proxy_set_header X-Forwarded-Proto $scheme;
+       }
+   }
+   ```
+
+3. **Aktiviere die Konfiguration und starte Nginx**:
+    ```bash
+    sudo ln -s /etc/nginx/sites-available/my-django-app /etc/nginx/sites-enabled
+    sudo systemctl restart nginx
+    ```
+
+### 6. **SSL-Zertifikate einrichten (optional, empfohlen)**
+
+Für eine sichere Verbindung empfehle ich, ein SSL-Zertifikat mit **Let’s Encrypt** einzurichten.
+
+1. **Installiere Certbot**:
+   ```bash
+   sudo apt install certbot python3-certbot-nginx
+   ```
+
+2. **Fordere das Zertifikat an**:
+   ```bash
+   sudo certbot --nginx -d <your-dyndns-name>
+   ```
+
+3. **Automatische Erneuerung testen**:
+   ```bash
+   sudo certbot renew --dry-run
+   ```
+
+### 7. **Anwendung testen**
+
+Öffne einen Webbrowser und navigiere zu deiner Domain oder IP-Adresse, um sicherzustellen, dass deine Django-App korrekt läuft.
+
+---
+
+### Fazit
+
+Mit diesen Schritten hast du deine Django-App auf einem Raspberry Pi konfiguriert und für den Zugriff im Internet bereitgestellt. Stelle sicher, dass du regelmäßig die Sicherheit und Aktualisierungen deiner Anwendung überprüfst.
+
+### Debugging-Tipp
+
+Wenn du auf Probleme stößt, prüfe die Logs von Nginx mit `sudo tail -f /var/log/nginx/error.log` und die Logs deines Docker-Containers mit `docker logs <container-name>`, um spezifische Fehlermeldungen zu finden.
