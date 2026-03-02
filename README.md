@@ -6,7 +6,7 @@ Persönliche Django-Website von Jonas.
 
 - [Python 3.11+](https://www.python.org/downloads/)
 - [Git](https://git-scm.com/)
-- [Docker](https://www.docker.com/) *(optional, für Docker-Setup)*
+- [Docker](https://www.docker.com/) *(für Docker/Production-Setup)*
 
 ---
 
@@ -19,6 +19,10 @@ git clone https://github.com/JonasRSH/jonasrsh.github.io.git
 cd jonasrsh.github.io
 ```
 
+---
+
+## Option A: Normale Installation (ohne Docker)
+
 ### 2. Umgebungsvariablen einrichten
 
 ```bash
@@ -26,10 +30,6 @@ cp .env.example .env
 ```
 
 Öffne die `.env`-Datei und trage deine Werte ein (z. B. `SECRET_KEY`, E-Mail-Konfiguration).
-
----
-
-## Lokales Setup (ohne Docker)
 
 ### 3. Virtuelle Umgebung erstellen und aktivieren
 
@@ -62,7 +62,38 @@ Die Anwendung ist anschließend unter [http://127.0.0.1:8000](http://127.0.0.1:8
 
 ---
 
-## Docker-Setup
+## Option B: Production-Setup mit `production-setup.sh` (Docker)
+
+### 2. Production-Env anlegen
+
+Beim ersten Lauf erstellt das Script eine `.env.prod` aus `.env.example` und stoppt dann bewusst.
+
+```bash
+chmod +x production-setup.sh
+./production-setup.sh
+```
+
+Danach `.env.prod` mit echten Werten ausfüllen (insbesondere `SECRET_KEY`, DB, Mail etc.) und erneut starten:
+
+```bash
+./production-setup.sh
+```
+
+Das Script führt automatisch aus:
+
+- `docker-compose up -d`
+- `docker-compose exec web python manage.py migrate`
+- `docker-compose exec web python manage.py collectstatic --noinput`
+
+Container-Status prüfen:
+
+```bash
+docker-compose ps
+```
+
+---
+
+## Docker/Make-Setup (alternativ)
 
 ### Entwicklungsumgebung starten
 
