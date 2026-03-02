@@ -66,7 +66,7 @@ Die Anwendung ist anschließend unter [http://127.0.0.1:8000](http://127.0.0.1:8
 
 ### 2. Script ausführbar machen und 1. Lauf starten
 
-Beim ersten Lauf erstellt das Script eine `.env.prod` aus `.env.example` und beendet sich danach bewusst.
+Beim ersten Lauf erstellt das Script eine `.env.prod` aus `.env.prod.example` (Fallback: `.env.example`) und beendet sich danach bewusst.
 
 ```bash
 chmod +x production-setup.sh
@@ -80,6 +80,8 @@ Trage echte Werte ein (insbesondere `SECRET_KEY`, DB, Mail, `ALLOWED_HOSTS`):
 ```bash
 nano .env.prod
 ```
+
+Hinweis: Die versionierte Vorlage liegt in `.env.prod.example`.
 
 ### 4. Setup erneut ausführen
 

@@ -17,8 +17,16 @@ fi
 
 # 1. .env.prod erstellen
 if [ ! -f .env.prod ]; then
-    echo "📝 Creating .env.prod from template..."
-    cp .env.example .env.prod
+    if [ -f .env.prod.example ]; then
+        echo "📝 Creating .env.prod from .env.prod.example..."
+        cp .env.prod.example .env.prod
+    elif [ -f .env.example ]; then
+        echo "📝 Creating .env.prod from .env.example..."
+        cp .env.example .env.prod
+    else
+        echo "❌ Keine Vorlage gefunden (.env.prod.example oder .env.example)."
+        exit 1
+    fi
     echo "⚠️  WICHTIG: .env.prod wurde erstellt, ist aber noch nicht konfiguriert."
     echo "    Bitte jetzt ausfüllen und Script danach erneut starten:"
     echo "    nano .env.prod"
