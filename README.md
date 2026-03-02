@@ -64,30 +64,45 @@ Die Anwendung ist anschließend unter [http://127.0.0.1:8000](http://127.0.0.1:8
 
 ## Option B: Production-Setup mit `production-setup.sh` (Docker)
 
-### 2. Production-Env anlegen
+### 2. Script ausführbar machen und 1. Lauf starten
 
-Beim ersten Lauf erstellt das Script eine `.env.prod` aus `.env.example` und stoppt dann bewusst.
+Beim ersten Lauf erstellt das Script eine `.env.prod` aus `.env.example` und beendet sich danach bewusst.
 
 ```bash
 chmod +x production-setup.sh
 ./production-setup.sh
 ```
 
-Danach `.env.prod` mit echten Werten ausfüllen (insbesondere `SECRET_KEY`, DB, Mail etc.) und erneut starten:
+### 3. `.env.prod` ausfüllen
+
+Trage echte Werte ein (insbesondere `SECRET_KEY`, DB, Mail, `ALLOWED_HOSTS`):
+
+```bash
+nano .env.prod
+```
+
+### 4. Setup erneut ausführen
 
 ```bash
 ./production-setup.sh
 ```
 
-Das Script führt automatisch aus:
+Hinweis: Das Script zeigt zusätzlich einen Helper-Befehl zum Generieren eines `SECRET_KEY` an.
 
-- `docker-compose up -d`
-- `docker-compose exec web python manage.py migrate`
-- `docker-compose exec web python manage.py collectstatic --noinput`
+Das Script erkennt automatisch `docker-compose` oder `docker compose` und führt dann aus:
 
-Container-Status prüfen:
+- `up -d`
+- `exec web python manage.py migrate`
+- `exec web python manage.py collectstatic --noinput`
+- `ps`
+
+### 5. Container-Status manuell prüfen (optional)
+
+Je nach Docker-Installation:
 
 ```bash
+docker compose ps
+# oder
 docker-compose ps
 ```
 
