@@ -9,34 +9,34 @@ help:	## Show this help message
 # Development commands
 dev:	## Start development environment
 	cp .env.dev .env
-	docker-compose -f docker-compose.dev.yml up --build
+	docker compose -f docker-compose.dev.yml up --build
 
 dev-down:	## Stop development environment
-	docker-compose -f docker-compose.dev.yml down
+	docker compose -f docker-compose.dev.yml down
 
 # Production commands
 prod:	## Start production environment
 	cp .env.prod .env
-	docker-compose up --build -d
+	docker compose up --build -d
 
 prod-down:	## Stop production environment
-	docker-compose down
+	docker compose down
 
 # Docker commands
 build:	## Build Docker images
-	docker-compose build
+	docker compose build
 
 up:	## Start containers
-	docker-compose up -d
+	docker compose up -d
 
 down:	## Stop containers
-	docker-compose down
+	docker compose down
 
 logs:	## Show container logs
-	docker-compose logs -f
+	docker compose logs -f
 
 shell:	## Open shell in web container
-	docker-compose exec web bash
+	docker compose exec web bash
 
 # Local development (without Docker)
 install:	## Install development dependencies
